@@ -1,0 +1,186 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    color: white;
+    box-sizing: border-box;
+}
+
+/* Background styling */
+body {
+    background-color: black;
+    background-image: url(orion-nebula-840mm-blog-size.webp); 
+    background-size: cover; /* Cover the entire screen */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; 
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Main astronomy screen */
+.main-screen {
+    width: 100%;
+    text-align: center;
+    color: white;
+    height: 2000px;
+}
+
+
+/* Solar system display */
+.display {
+    position: relative;
+    width:100%;
+    height: 720px;
+    margin: auto;
+    background-color: black;
+    background-image: url(background.webp);
+    background-color: #2a5298;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+#mainheading{
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 42px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px white;
+    white-space: nowrap;
+    font-family: "Raleway";
+}
+button {
+    color: white;
+    border-radius: 30px;
+    width: 220px;
+    height: 50px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298); /* Smooth space-like gradient */
+    font-style: italic;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    position: absolute;
+    bottom: -1px; 
+    left: 50%;
+    transform: translateX(-50%);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 0px 15px rgba(173, 216, 230, 0.8); 
+}
+
+button:hover {
+    filter: drop-shadow(0px 0px 15px #00f);
+    transform: translateX(-50%) scale(1.1); 
+}
+.sun {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: yellow;
+    border-radius: 50%;
+    background-image: url(Screenshot\ 2025-03-28\ 220009.png);
+    background-size: contain;
+    box-shadow: 0 0 40px rgba(255, 255, 0, 0.8);
+    filter: drop-shadow(10px 7px 10px white);
+}
+
+
+.planets {
+    position: absolute;
+    border-radius: 50%;
+}
+
+/* Define orbit sizes and planet animations */
+.planets:nth-child(1) { width: 30px; height: 30px;background-image: url(Screenshot\ 2025-03-28\ 215731.png);background-size: contain; animation: orbit1 3s linear infinite; }
+.planets:nth-child(2) { width: 40px; height: 40px; background-image: url(Screenshot\ 2025-03-28\ 220259.png); animation: orbit2 5s linear infinite; }
+.planets:nth-child(3) { width: 65px; height: 65px; background-image: url(Screenshot\ 2025-03-29\ 074800.png);background-size: contain; animation: orbit3 7s linear infinite; }
+.planets:nth-child(4) { width: 45px; height: 45px; background-image: url(Screenshot\ 2025-03-28\ 220259.png); background-size: contain;animation: orbit4 10s linear infinite; }
+.planets:nth-child(5) { width: 30px; height: 30px;  background-image: url(Screenshot\ 2025-03-28\ 215715.png);background-size: contain; animation: orbit5 12s linear infinite; }
+.planets:nth-child(6) { width: 55px; height: 55px; ;background-image: url(Screenshot\ 2025-03-28\ 215755.png);background-size: contain;animation: orbit6 15s linear infinite; }
+.planets:nth-child(7) { width: 60px; height: 60px; background-image: url(Screenshot\ 2025-03-28\ 230336.png);background-size: contain; animation: orbit7 18s linear infinite; }
+.planets:nth-child(8) { width: 80px; height: 80px; background-image: url(Screenshot\ 2025-03-28\ 215417.png);background-size: contain; animation: orbit8 20s linear infinite; }
+
+/* Animation for each orbit */
+@keyframes orbit1 { 0% { transform: rotate(0deg) translateX(50px) rotate(0deg); } 100% { transform: rotate(360deg) translateX(50px) rotate(-360deg); } }
+@keyframes orbit2 { 0% { transform: rotate(0deg) translateX(70px) rotate(0deg); } 100% { transform: rotate(360deg) translateX(70px) rotate(-360deg); } }
+@keyframes orbit3 { 0% { transform: rotate(0deg) translateX(100px) rotate(0deg); } 100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); } }
+@keyframes orbit4 { 0% { transform: rotate(0deg) translateX(130px) rotate(0deg); } 100% { transform: rotate(360deg) translateX(130px) rotate(-360deg); } }
+@keyframes orbit5 { 0% { transform: rotate(0deg) translateX(160px) rotate(0deg); } 100% { transform: rotate(360deg) translateX(160px) rotate(-360deg); } }
+@keyframes orbit6 { 0% { transform: rotate(0deg) translateX(190px) rotate(0deg); } 100% { transform: rotate(360deg) translateX(190px) rotate(-360deg); } }
+@keyframes orbit7 { 0% { transform: rotate(0deg) translateX(220px) rotate(0deg); } 100% { transform: rotate(360deg) translateX(220px) rotate(-360deg); } }
+@keyframes orbit8 { 0% { transform: rotate(0deg) translateX(250px) rotate(0deg); } 100% { transform: rotate(360deg) translateX(250px) rotate(-360deg); } }
+/* Initial styles */
+.main-screen {
+    opacity: 0;
+    transform: translateX(100vw);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: contain; 
+     width: 100%;
+    text-align: center;
+    color: white;
+}
+
+/* Class to show the main screen */
+.show-main {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Hide the first screen smoothly */
+.hide-display {
+    opacity: 0;
+    transform: translateX(-100vw);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+h1 {
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    font-family: "Raleway";
+    margin-top: 70px;
+}
+
+p {
+    text-align: center;
+}
+
+/* Astronomy image container */
+.daily-snap {
+    width: 100%;
+    height: 570px;
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 570px;
+    margin-top: 50px; /* Adds space above the image container */
+    display: flex;
+    justify-content: center;
+    border: 2px solid transparent;
+}
+
+.main_paragraph {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    font-style: italic;
+    color: whitesmoke;
+    background: rgba(0, 0, 0, 0.7);
+    font-size: 30px;
+    color: whitesmoke;
+    margin-bottom: 30px; 
+}
+.picture_date{
+    font-size: 20px;
+}
